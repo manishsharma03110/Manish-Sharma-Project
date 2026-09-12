@@ -2,6 +2,7 @@
 FROM eclipse-temurin:25-jdk AS build
 WORKDIR /app
 COPY . .
+RUN chmod +x mvnw
 RUN ./mvnw clean package -DskipTests
 
 # Stage 2: Run the application
