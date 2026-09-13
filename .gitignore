@@ -31,3 +31,14 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Local review output (save future screenshots and QA notes here)
+/.qa/
+/artifacts/
+# Guard against accidental review output in the project root
+/homepage-*.png
+/homepage-qa.md
+/homepage-before.html
+/footer-link-hover.png
+/mobile-review.png
+/cleanup-candidates.md

@@ -32,11 +32,16 @@
 @SET __MVNW_ERROR__=
 @SET __MVNW_PSMODULEP_SAVE=%PSModulePath%
 @SET PSModulePath=
+@REM Use Windows PowerShell's installed path when it is absent from PATH.
+@SET "__MVNW_PATH_SAVE=%PATH%"
+@IF EXIST "%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" SET "PATH=%SystemRoot%\System32\WindowsPowerShell\v1.0;%PATH%"
 @FOR /F "usebackq tokens=1* delims==" %%A IN (`powershell -noprofile "& {$scriptDir='%~dp0'; $script='%__MVNW_ARG0_NAME__%'; icm -ScriptBlock ([Scriptblock]::Create((Get-Content -Raw '%~f0'))) -NoNewScope}"`) DO @(
   IF "%%A"=="MVN_CMD" (set __MVNW_CMD__=%%B) ELSE IF "%%B"=="" (echo %%A) ELSE (echo %%A=%%B)
 )
 @SET PSModulePath=%__MVNW_PSMODULEP_SAVE%
 @SET __MVNW_PSMODULEP_SAVE=
+@SET "PATH=%__MVNW_PATH_SAVE%"
+@SET __MVNW_PATH_SAVE=
 @SET __MVNW_ARG0_NAME__=
 @SET MVNW_USERNAME=
 @SET MVNW_PASSWORD=

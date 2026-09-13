@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<nav th:fragment="navbar" class="navbar" aria-label="Main navigation">
+    <div class="container nav-inner">
+        <a href="/" th:href="@{/}" class="logo">MANISH SHARMA</a>
+        <button type="button" class="hamburger" id="hamburgerBtn"
+                aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+            <i class="menu-icon" data-lucide="menu" aria-hidden="true"></i>
+        </button>
+        <div class="nav-links" id="navLinks">
+            <a href="/" th:href="@{/}" class="nav-link"
+               th:classappend="${activePage == 'home'} ? 'active'"
+               th:attr="aria-current=${activePage == 'home'} ? 'page' : null">Home</a>
+            <a href="/about" th:href="@{/about}" class="nav-link"
+               th:classappend="${activePage == 'about'} ? 'active'"
+               th:attr="aria-current=${activePage == 'about'} ? 'page' : null">About</a>
+            <div class="nav-dropdown"><button class="nav-link dropdown-toggle" type="button" aria-expanded="false" aria-controls="services-submenu">Services</button><div class="dropdown-panel" id="services-submenu" hidden><a href="/services#seo" th:href="@{/services#seo}">SEO</a><a href="/services#java" th:href="@{/services#java}">Java Development</a></div></div>
+            <div class="nav-dropdown"><button class="nav-link dropdown-toggle" type="button" aria-expanded="false" aria-controls="resources-submenu">Resources</button><div class="dropdown-panel" id="resources-submenu" hidden><a href="/resources#blog" th:href="@{/resources#blog}">Blog</a><a href="/resources#java-projects" th:href="@{/resources#java-projects}">Project</a></div></div>
+            
+        </div>
+        <a href="/contact" th:href="@{/contact}" class="btn btn-ghost btn-small nav-cta">Contact Me</a>
+    </div>
+</nav>
+</body>
+</html>
